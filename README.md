@@ -283,23 +283,23 @@ merge paired-end reads
 --interleaved_in           # 表示输入含有read1,read2
 --stdout                   # 通过STDOUT形式输出，默认关闭
 
-# filter reads with unwanted indexes (to remove possible contamination)
+#filter reads with unwanted indexes (to remove possible contamination)
 通过不需要的索引过滤reads(去除污染)
 --filter_by_index1         # 指定包含指定index1的文件，一行一个index
 --filter_by_index2         # 指定包含指定index2的文件，一行一个index
 --filter_by_index_threshold # 允许的index错配碱基数， default 0
 
-# base correction by overlap analysis options
+#base correction by overlap analysis options
 碱基矫正
 -c, --correction           # 开启碱基矫正（PE）
 --overlap_len_require      # overlap的最小长度。 这将影响基于overlap的PE merge, adapter                                    trimming and correction. 30 by default.
 --overlap_diff_limit       # 识别overlap时允许的最大错配数。这将影响基于overlap的PE merge,                                    adapter trimming and correction。 5 by default.
 --overlap_diff_percent_limit  # 识别overlap时允许的最大错配碱基比例。 Default 20.
 
-# reporting options
+#reporting options
   -j, --json               # json格式报告
   -h, --html               # html格式报告
   -R, --report_title       # 报告标题
   
- # threading options
+ #threading options
   -w, --thread             # 线程 , default is 2
