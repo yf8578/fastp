@@ -1,5 +1,5 @@
 # fastp
-相关参数描述
+##相关参数描述
 Fastp
 
 filter out bad reads (too low quality, too short, or too many N…)
@@ -75,20 +75,18 @@ filtering
 -q, --qualified_quality_phred    # 碱基质量值 default >=15
 -u, --unqualified_percent_limit  # 允许的低质量碱基所占比例，default=40. 表示低质量碱基比例为40%                                    大于40则该条reads被丢弃
 -e, --average_qual               # 平均质量得分阈值 如果reads 质量得分小于平均值则该reads被丢弃。                                          default=0 ，表示关闭
-1
-2
-3
-4
-5
+
+
+
 2. length filter （长度过滤）
 从reads 最小，最大长度 两方面进行过滤
 
 -L, --disable_length_filtering   # 关闭 length filter ，默认开启
 -l, --length_required            # 设定最小reads长度
     --length_limit               # 设定最大reads长度，大于length_limit的会过滤掉。 0表示无限制
-1
-2
-3
+
+
+
 3. low complexity filter （低复杂度过滤）
 complexity 定义：
 
@@ -99,13 +97,10 @@ complexity 定义：
 # a 51-bp sequence, with 3 bases that is different from its next base
 seq = 'AAAATTTTTTTTTTTTTTTTTTTTTGGGGGGGGGGGGGGGGGGGGGGCCCC'
 complexity = 3/(51-1) = 6%
-1
-2
-3
+
 -y, --low_complexity_filter      # 开启过滤， 默认关闭
 -Y， --complexity_threshold      # 设定complexity阈值（0-100），default=30
-1
-2
+
 adapters
 Adapter trimming 默认开启。通过检测reads间的overlap来检测adapter。
 
@@ -124,21 +119,7 @@ AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
 >polyA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
+
 per read cutting by quality score
 通过质量值过滤每条reads
 
@@ -160,18 +141,7 @@ per read cutting by quality score
 -W, --cut_window_size              # 滑框大小 Range: 1~1000, default: 4 
 -M, --cut_mean_quality             # 平均质量得分 Range: 1~36 default: 20 (Q20)
 #If you don't set window size and mean quality threshold for these function respectively, fastp will use the values from -W, --cut_window_size and -M, --cut_mean_quality
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
+
 global trimming
 max_len 是根据read最终长度计算，
 
@@ -181,12 +151,7 @@ max_len 是根据read最终长度计算，
 -B, --max_len2                          # 若未设定，按照read1执行
 #如果 read1长度大于 --max_len1 ，则从tail端，按照--max_len1 进行trim.
 
-1
-2
-3
-4
-5
-6
+
 –max_len 是根据read最终长度计算，可能影响read长度的参数：
 
 1, UMI preprocessing (--umi)
@@ -229,13 +194,7 @@ fastp会将标签提取出来，放在reads表头的第一部分，并且在sam/
 --umi_skip             # 如果标签在 read1/read2/per_read 上，fastp可以跳过标签后的碱基来trim标签
                        # --umi_skip 指定跳过的碱基数，默认关闭
 
-1
-2
-3
-4
-5
-6
-7
+
 output splitting
 拆分输出文件，并行处理节约后续分析时间
 
@@ -245,10 +204,7 @@ output splitting
 -d or --split_prefix_digits      # 文件名前缀长度
 -s or --split                    # 按照文件个数拆分
 -S or --split_by_lines           # 按照文件行数拆分
-1
-2
-3
-4
+
 overrepresented sequence analysis
 过表达序列分析
 
@@ -256,10 +212,7 @@ overrepresented sequence analysis
 -P, --overrepresentation_sampling  # 指定用于统计的reads数比例，默认20，即默认1/20的reads用于序列                                      统计. 1 表示将所有reads用于统计
 
 fastp不仅给出了过表达序列的计数，还给出了它们如何在cycle中分布的信息。为每个检测到的过表达序列提供了一个数字，从中可以知道该序列在哪里最常见。
-1
-2
-3
-4
+
 merge paired-end reads
 合并PE序列overlap部分，overlap部分写入–merged_out。
 
@@ -269,12 +222,7 @@ merge paired-end reads
 --unpaired2                # 未合并的reads，read2 passes filters but read1 doesn't.
 --include_unmerged         # 将所有不能合并的reads输出到一个文件中，默认关闭
 --failed_out               # 存放所有没有filter的reads
-1
-2
-3
-4
-5
-6
+
 其他参数
 
 -6, --phred64              # 使用phred64质量体系（会被转换成33）
